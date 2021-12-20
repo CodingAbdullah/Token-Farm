@@ -1,9 +1,12 @@
 // SPDX-License-Identifier: MIT
 
+pragma solidity >= 0.4.0;
+
 contract Bank {
 
    // Implement withdraw(), deposit() here..
     address private manager;
+    mapping(address => uint) private holders;
 
     constructor() {
         manager = msg.sender;

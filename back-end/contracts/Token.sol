@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >= 0.4.0;
 
-//import '../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol';
+// import '../node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol';
 
 // Creating a custom token earned through sending ETH to bank
 // Implementing all EIP standard requirements for ERC20
@@ -20,6 +20,8 @@ contract Token {
         name = n;
         symbol = s;
         decimals = d;
+
+        _mint(msg.sender, 1000); // Allow the contract creator to recieve tokens
     }
 
     function getName() external view returns (string memory) {
@@ -37,7 +39,7 @@ contract Token {
     function getTotalCirculatingSupply() public view returns(uint256) {
         return TOTAL_CIRCULATING_SUPPLY; // Returns the total supply of those tokens in circulation as well as those burned
     }
-    
+
     function balanceOf(address account) public view returns (uint256) {
         return holders[account]; // Balance of a particular account
     }
