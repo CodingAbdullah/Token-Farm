@@ -28,6 +28,14 @@ contract Token {
         return name; // Return the name of token
     }
 
+    function getSymbol() external view returns (string memory) {
+        return symbol; // Return the symbol of token
+    }
+
+    function getDecimals() external view returns (uint8) {
+        return decimals; // Return the decimals of token
+    }
+
     function totalSupply() public pure returns (uint256) {
         return MAX_SUPPLY; // Maximum Supply will always be 1 trillion
     }
