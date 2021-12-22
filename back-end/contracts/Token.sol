@@ -100,10 +100,9 @@ contract Token {
         _allowances[msg.sender][spender] += addedValue; // Adjust the alotted allowance accordingly
 
         return true;
-
     }
 
-    function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool success) {
+    function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool) {
         require(address(spender) != address(0), "Address cannot be null");
         require(_allowances[msg.sender][spender] - subtractedValue >= 0, "Cannot subtract more than what is allocated"); // Cannot remove more than holdings
 
